@@ -1,0 +1,375 @@
+[
+  {
+    "name":"com.lowagie.text.pdf.PdfContentByte",
+    "methods":[{"name":"showText","parameterTypes":["java.awt.font.GlyphVector"] }]
+  },
+  {
+    "name":"com.lowagie.text.pdf.PdfName",
+    "allDeclaredFields":true
+  },
+  {
+    "name":"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"java.io.File[]"
+  },
+  {
+    "name":"java.lang.Boolean[]"
+  },
+  {
+    "name":"java.lang.Byte[]"
+  },
+  {
+    "name":"java.lang.Character[]"
+  },
+  {
+    "name":"java.lang.Class[]"
+  },
+  {
+    "name":"java.lang.Double[]"
+  },
+  {
+    "name":"java.lang.Float[]"
+  },
+  {
+    "name":"java.lang.Integer"
+  },
+  {
+    "name":"java.lang.Integer[]"
+  },
+  {
+    "name":"java.lang.Long"
+  },
+  {
+    "name":"java.lang.Long[]"
+  },
+  {
+    "name":"java.lang.Short[]"
+  },
+  {
+    "name":"java.lang.String"
+  },
+  {
+    "name":"java.lang.String[]"
+  },
+  {
+    "name":"java.lang.Thread",
+    "methods":[{"name":"getContextClassLoader","parameterTypes":[] }]
+  },
+  {
+    "name":"java.lang.Throwable",
+    "methods":[{"name":"initCause","parameterTypes":["java.lang.Throwable"] }]
+  },
+  {
+    "name":"java.math.BigDecimal[]"
+  },
+  {
+    "name":"java.math.BigInteger[]"
+  },
+  {
+    "name":"java.net.URL[]"
+  },
+  {
+    "name":"java.sql.Date[]"
+  },
+  {
+    "name":"java.sql.Time[]"
+  },
+  {
+    "name":"java.sql.Timestamp[]"
+  },
+  {
+    "name":"java.util.Calendar[]"
+  },
+  {
+    "name":"java.util.Date[]"
+  },
+  {
+    "name":"net.sf.jasperreports.components.ComponentsExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.components.headertoolbar.HeaderToolbarConditionalStyleProviderExtensionFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.components.headertoolbar.HeaderToolbarParameterContributorExtensionFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.data.DataAdapterParameterContributorExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.data.DefaultDataAdapterServiceExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.JRBand"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.JRExpression"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.JRField"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.JRSortField"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.base.JRBaseField",
+    "methods":[{"name":"setDescription","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignField",
+    "methods":[{"name":"setDescription","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignBand",
+    "methods":[{"name":"addElement","parameterTypes":["net.sf.jasperreports.engine.design.JRDesignElement"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignElement"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignElementGroup",
+    "methods":[{"name":"addElement","parameterTypes":["net.sf.jasperreports.engine.design.JRDesignElement"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignExpression",
+    "methods":[{"name":"setText","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignSection",
+    "methods":[{"name":"addBand","parameterTypes":["net.sf.jasperreports.engine.JRBand"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRDesignTextField",
+    "methods":[{"name":"setExpression","parameterTypes":["net.sf.jasperreports.engine.JRExpression"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRJavacCompiler",
+    "methods":[{"name":"<init>","parameterTypes":["net.sf.jasperreports.engine.JasperReportsContext"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JRJdtCompiler"
+  },
+  {
+    "name":"net.sf.jasperreports.engine.design.JasperDesign",
+    "methods":[
+      {"name":"addField","parameterTypes":["net.sf.jasperreports.engine.JRField"] },
+      {"name":"addSortField","parameterTypes":["net.sf.jasperreports.engine.JRSortField"] },
+      {"name":"setColumnHeader","parameterTypes":["net.sf.jasperreports.engine.JRBand"] }
+    ]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.DefaultExporterFilterFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.ElementKeyExporterFilterFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.ElementPropertyExporterFilterFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.JROriginExporterFilterFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.MatcherExportFilterMappingExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.export.MatcherExporterFilterFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.fill.TextMeasurerFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.fonts.SimpleFontExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.query.SQLQueryClauseFunctionsExtensions",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.style.PropertyStyleProviderExtensionFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRBandFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRElementFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRFieldFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRReportSaxParserFactory",
+    "methods":[{"name":"<init>","parameterTypes":["net.sf.jasperreports.engine.JasperReportsContext"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRSectionFactory$DetailSectionFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRSortFieldFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRStaticTextFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRStringExpressionFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRTextElementFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRTextFieldFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JRXmlLoader",
+    "methods":[{"name":"setJasperDesign","parameterTypes":["net.sf.jasperreports.engine.design.JasperDesign"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.engine.xml.JasperDesignFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.export.type.PdfPrintScalingEnum",
+    "methods":[{"name":"getByName","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.export.type.PdfVersionEnum",
+    "methods":[{"name":"getByName","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.export.type.PdfaConformanceEnum",
+    "methods":[{"name":"getByName","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"net.sf.jasperreports.extensions.DefaultExtensionsRegistry",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.extensions.DefaultExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.governors.GovernorExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.parts.PartComponentsExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.repo.DefaultRepositoryExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.types.date.DateRangeQueryClauseExtensions",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.util.CastorMappingExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.web.util.ContentTypeMappingExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.web.util.JacksonMappingExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.web.util.RequirejsModuleMappingExtensionsRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"net.sf.jasperreports.web.util.WebResourceHandlersExtensionRegistryFactory",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.commons.logging.LogFactory"
+  },
+  {
+    "name":"org.apache.commons.logging.impl.Jdk14Logger",
+    "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+  },
+  {
+    "name":"org.apache.commons.logging.impl.Log4JLogger"
+  },
+  {
+    "name":"org.apache.commons.logging.impl.LogFactoryImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.commons.logging.impl.WeakHashtable",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.eclipse.jdt.internal.compiler.Compiler"
+  },
+  {
+    "name":"org.eclipse.jdt.internal.compiler.env.AccessRestriction"
+  },
+  {
+    "name":"org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer",
+    "methods":[
+      {"name":"<init>","parameterTypes":["org.eclipse.jdt.internal.compiler.env.IBinaryType","org.eclipse.jdt.internal.compiler.env.AccessRestriction"] },
+      {"name":"<init>","parameterTypes":["org.eclipse.jdt.internal.compiler.env.ICompilationUnit","org.eclipse.jdt.internal.compiler.env.AccessRestriction"] }
+    ]
+  },
+  {
+    "name":"org.eclipse.jdt.internal.compiler.util.Messages",
+    "allDeclaredFields":true
+  },
+  {
+    "name":"report2_1595415638012_917597",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"com.sun.xml.internal.stream.XMLInputFactoryImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name": "com.sun.org.apache.xerces.internal.impl.dv.xs.SchemaDVFactoryImpl",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name": "sun.awt.X11FontManager",
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true,
+    "allDeclaredFields" : true,
+    "allPublicFields" : true
+  },
+  {
+    "name": "sun.font.FontConfigManager",
+    "methods": [
+      {"name": "getFontConfigVersion","parameterTypes":[]}
+    ]
+  }
+
+]
+
+

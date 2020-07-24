@@ -12,7 +12,7 @@ public class MainClass {
         }
         catch(JRException JRex){
             System.out.println("Exception generating report");
-            System.out.println(JRex.getStackTrace());
+            System.out.println(JRex.getMessage());
         }
     }
 }
