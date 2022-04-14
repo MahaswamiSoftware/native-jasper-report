@@ -11,69 +11,146 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <native.maven.plugin.version>0.9.11</native.maven.plugin.version>
+        <exec.mainClass>com.mahaswami.nativejasper.MainClass</exec.mainClass>
+        <native.image.dir.name>native-image</native.image.dir.name>
+        <!-- flags to skip plugin execution or not, in each environment -->
+        <skip.in.linux>true</skip.in.linux>
+        <skip.in.windows>true</skip.in.windows>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <name>linux</name>
+                </os>
+            </activation>
+            <properties>
+                <skip.in.linux>false</skip.in.linux>
+            </properties>
+        </profile>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <skip.in.windows>false</skip.in.windows>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>6.11.0</version>
+            <version>6.19.1</version>
+        </dependency>
+        <!-- use a safe version of jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.2.2</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
-           <!-- <plugin>
-                <groupId>org.graalvm.nativeimage</groupId>
-                <artifactId>native-image-maven-plugin</artifactId>
-                <version>20.1.0</version>
-                <configuration>
-                    <mainClass>com.mahaswami.nativejasper.MainClass</mainClass>
-                    <imageName>roll</imageName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>native-image</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <mainClass>com.mahaswami.nativejasper.MainClass</mainClass>
-                </configuration>
-            </plugin>-->
-            <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>dependency/</classpathPrefix>
-                            <mainClass>com.mahaswami.nativejasper.MainClass</mainClass>
-                        </manifest>
-                    </archive>
+                    <executable>java</executable>
+                    <arguments>
+                        <!-- GraalVM's agent to generate (or merge with) native-image configuration files -->
+                        <argument>-agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>${exec.mainClass}</argument>
+                    </arguments>
                 </configuration>
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>${native.maven.plugin.version}</version>
                 <executions>
+                    <!-- native image build in Linux -->
                     <execution>
-                        <id>copy-dependencies</id>
+                        <id>build-native-linux</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>build</goal>
                         </goals>
                         <configuration>
-                            <useBaseVersion>false</useBaseVersion>
+                            <skip>${skip.in.linux}</skip>
+                            <imageName>${project.name}</imageName>
+                            <mainClass>${exec.mainClass}</mainClass>
+                            <buildArgs>
+                                <buildArg>-Djava.awt.headless=false</buildArg> <!-- especially needed for Linux -->
+                                <buildArg>--no-fallback</buildArg>
+                                <buildArg>--allow-incomplete-classpath</buildArg>
+                                <buildArg>--native-image-info</buildArg>
+                                <buildArg>--verbose</buildArg>
+                                <buildArg>-H:TempDirectory=${project.build.directory}/tmp/${native.image.dir.name}</buildArg>
+                                <buildArg>-H:Path=${project.build.directory}/${native.image.dir.name}</buildArg>
+                            </buildArgs>
+                        </configuration>
+                    </execution>
+                    <!-- native image build in Windows -->
+                    <execution>
+                        <id>build-native-windows</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip.in.windows}</skip>
+                            <imageName>${project.name}</imageName>
+                            <mainClass>${exec.mainClass}</mainClass>
+                            <buildArgs>
+                                <buildArg>--no-fallback</buildArg>
+                                <buildArg>--allow-incomplete-classpath</buildArg>
+                                <buildArg>--native-image-info</buildArg>
+                                <buildArg>--verbose</buildArg>
+                                <buildArg>-H:TempDirectory=${project.build.directory}/tmp/${native.image.dir.name}</buildArg>
+                                <buildArg>-H:Path=${project.build.directory}/${native.image.dir.name}</buildArg>
+                                <!-- temp fix for the link errors since GraalVM 21.3.0 for JDK17 version, in Windows
+                                     (see https://github.com/oracle/graal/issues/4072#issuecomment-1025211870) -->
+                                <buildArg>-H:NativeLinkerOption=/export:JDK_LoadSystemLibrary</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_CallMethodByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_CallMethodByNameV</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_CallStaticMethodByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ClassString</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_GetEnv</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_GetFieldByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_GetStaticFieldByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_IsInstanceOfByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_NewObjectByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_NewStringPlatform</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_SetFieldByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowArrayIndexOutOfBoundsException</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowByName</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowIOException</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowIllegalArgumentException</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowInternalError</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowNullPointerException</buildArg>
+                                <buildArg>-H:NativeLinkerOption=/export:JNU_ThrowOutOfMemoryError</buildArg>
+                            </buildArgs>
                         </configuration>
                     </execution>
                 </executions>
